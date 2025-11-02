@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pyspark
+gradio
+pandas
+python-multipart
+requests
+tabulate
+sparkmeasure
