@@ -44,7 +44,7 @@ services:
     environment:
       SPARK_MODE: worker
       SPARK_MASTER_URL: spark://spark-master:7077
-      SPARK_WORKER_MEMORY: 60G
+      SPARK_WORKER_MEMORY: 5G
       SPARK_WORKER_CORES: '2'
       SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
       SPARK_RPC_ENCRYPTION_ENABLED: 'no'
@@ -67,7 +67,7 @@ services:
     environment:
       SPARK_MODE: worker
       SPARK_MASTER_URL: spark://spark-master:7077
-      SPARK_WORKER_MEMORY: 60G
+      SPARK_WORKER_MEMORY: 5G
       SPARK_WORKER_CORES: '2'
       SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
       SPARK_RPC_ENCRYPTION_ENABLED: 'no'
@@ -77,6 +77,512 @@ services:
       SPARK_DAEMON_MEMORY: 1g
     ports:
     - 8082:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-3:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-3
+    cpuset: 8,9,10,11
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8083:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-4:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-4
+    cpuset: 12,13,14,15
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8084:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-5:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-5
+    cpuset: 16,17,18,19
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8085:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-6:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-6
+    cpuset: 20,21,22,23
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8086:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-7:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-7
+    cpuset: 24,25,26,27
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8087:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-8:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-8
+    cpuset: 28,29,30,31
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8088:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-9:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-9
+    cpuset: 32,33,34,35
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8089:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-10:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-10
+    cpuset: 36,37,38,39
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8090:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-11:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-11
+    cpuset: 40,41,42,43
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8091:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-12:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-12
+    cpuset: 44,45,46,47
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8092:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-13:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-13
+    cpuset: 48,49,50,51
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8093:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-14:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-14
+    cpuset: 52,53,54,55
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8094:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-15:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-15
+    cpuset: 56,57,58,59
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8095:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-16:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-16
+    cpuset: 60,61,62,63
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8096:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-17:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-17
+    cpuset: 64,65,66,67
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8097:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-18:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-18
+    cpuset: 68,69,70,71
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8098:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-19:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-19
+    cpuset: 72,73,74,75
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8099:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-20:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-20
+    cpuset: 76,77,78,79
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8100:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-21:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-21
+    cpuset: 80,81,82,83
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8101:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-22:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-22
+    cpuset: 84,85,86,87
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8102:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-23:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-23
+    cpuset: 88,89,90,91
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8103:8081
+    volumes:
+    - ./data:/app/data
+    depends_on:
+    - spark-master
+    networks:
+    - spark-network
+  spark-worker-24:
+    image: docker.io/bitnamilegacy/spark:latest
+    container_name: spark-worker-24
+    cpuset: 92,93,94,95
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: 5G
+      SPARK_WORKER_CORES: '2'
+      SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
+      SPARK_RPC_ENCRYPTION_ENABLED: 'no'
+      SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
+      SPARK_SSL_ENABLED: 'no'
+      SPARK_USER: spark
+      SPARK_DAEMON_MEMORY: 1g
+    ports:
+    - 8104:8081
     volumes:
     - ./data:/app/data
     depends_on:
