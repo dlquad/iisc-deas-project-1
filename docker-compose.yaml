@@ -30,10 +30,9 @@ services:
     ports:
     - 8000:8000
     - 4040:4040
-    # volumes:
-    # - ./:/app
-    # - ./data:/app/data
-    # - ./logs:/app/logs
+    volumes:
+    - ./data:/app/data
+    - ./logs:/app/logs
     depends_on:
     - spark-master
     networks:
@@ -41,12 +40,12 @@ services:
   spark-worker-1:
     image: docker.io/bitnamilegacy/spark:latest
     container_name: spark-worker-1
-    cpuset: 0,1,2,3,4,5
+    cpuset: 0,1,2,3
     environment:
       SPARK_MODE: worker
       SPARK_MASTER_URL: spark://spark-master:7077
-      SPARK_WORKER_MEMORY: 8G
-      SPARK_WORKER_CORES: '4'
+      SPARK_WORKER_MEMORY: 60G
+      SPARK_WORKER_CORES: '2'
       SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
       SPARK_RPC_ENCRYPTION_ENABLED: 'no'
       SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'
@@ -64,12 +63,12 @@ services:
   spark-worker-2:
     image: docker.io/bitnamilegacy/spark:latest
     container_name: spark-worker-2
-    cpuset: 6,7,8,9,10,11
+    cpuset: 4,5,6,7
     environment:
       SPARK_MODE: worker
       SPARK_MASTER_URL: spark://spark-master:7077
-      SPARK_WORKER_MEMORY: 8G
-      SPARK_WORKER_CORES: '4'
+      SPARK_WORKER_MEMORY: 60G
+      SPARK_WORKER_CORES: '2'
       SPARK_RPC_AUTHENTICATION_ENABLED: 'no'
       SPARK_RPC_ENCRYPTION_ENABLED: 'no'
       SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED: 'no'

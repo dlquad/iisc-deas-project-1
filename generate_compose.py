@@ -89,7 +89,7 @@ def generate_docker_compose(num_workers: int, mem_per_worker: int, cores_per_wor
                 },
                 "ports": ["8000:8000", "4040:4040"],
                 "volumes": [
-                    "./:/app",
+                    # "./:/app",
                     "./data:/app/data",
                     "./logs:/app/logs"
                 ],

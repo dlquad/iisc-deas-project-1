@@ -9,19 +9,18 @@ default-jre wget \
 ENV JAVA_HOME=/usr/lib/jvm/default-java
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-RUN wget https://repo1.maven.org/maven2/ch/cern/sparkmeasure/spark-measure_2.13/0.27/spark-measure_2.13-0.27.jar
-RUN mkdir -p /root/.ivy2.5.2/jars/
-RUN mv spark-measure_2.13-0.27.jar /root/.ivy2.5.2/jars/ch.cern.sparkmeasure:spark-measure_2.13:0.27.jar
-
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
 COPY . .
 
-RUN groupadd -g 1001 appuser && useradd -d /app -r -u 1001 -g appuser appuser
-RUN chown -R appuser:appuser /app
+# RUN useradd -u 1001 --badname -g 0 -M -d /home/appuser 1001
+# RUN mkdir -p /app/logs
+# RUN mkdir -p /home/appuser
+# RUN chown -R 1001:0 /app /home/appuser
+# RUN chmod -R 755 /app /home/appuser
 
-USER appuser
+# ENV HOME=/home/appuser
+# USER 1001
 
 EXPOSE 8000
 

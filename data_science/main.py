@@ -53,7 +53,7 @@ def extract_stage_metrics(stagemetrics_dir: str):
     return stage_metrics
 
 
-def bench_pipeline(num_workers: int, mem_per_worker: int, cores_per_worker: int, dataset_scale: float, log_dir: str):
+def bench_pipeline(num_workers: int, mem_per_worker: int, cores_per_worker: int, dataset_scale: float, log_dir: str, remark: str = ""):
     """
     Benchmark the Spark pipeline with given configuration.
     
@@ -63,6 +63,7 @@ def bench_pipeline(num_workers: int, mem_per_worker: int, cores_per_worker: int,
         cores_per_worker: Number of cores per worker
         dataset_scale: Scale factor for dataset (0 to 1)
         log_dir: Directory to save benchmark results
+        remark: Short comment about the benchmark configuration
     
     Returns:
         Dictionary containing benchmark results
@@ -85,7 +86,6 @@ def bench_pipeline(num_workers: int, mem_per_worker: int, cores_per_worker: int,
     df = full_df.limit(num_rows)
     
     stagemetrics = StageMetrics(spark)
-    stagemetrics_dir = os.path.join(log_dir, f"stagemetrics_{int(time.time())}")
     
     start_e2e_time = time.time()
     stagemetrics.begin()
@@ -95,10 +95,12 @@ def bench_pipeline(num_workers: int, mem_per_worker: int, cores_per_worker: int,
     stagemetrics.end()
     e2e_time = time.time() - start_e2e_time
     
+    stagemetrics.print_report()
     df_metrics = stagemetrics.create_stagemetrics_DF()
-    stagemetrics.save_data(df_metrics.orderBy("jobId", "stageId"), stagemetrics_dir, fileformat="json")
     
-    stage_metrics_list = extract_stage_metrics(stagemetrics_dir)
+    # Convert DataFrame to list of dictionaries
+    stage_metrics_list = df_metrics.orderBy("jobId", "stageId").collect()
+    print(stage_metrics_list)
     
     results = {
         "num_workers": num_workers,
@@ -108,21 +110,22 @@ def bench_pipeline(num_workers: int, mem_per_worker: int, cores_per_worker: int,
         "num_rows": num_rows,
         "num_stages": len(stage_metrics_list),
         "E2E_time": e2e_time,
-        "E2E_throughput": num_rows / e2e_time if e2e_time > 0 else 0
+        "E2E_throughput": num_rows / e2e_time if e2e_time > 0 else 0,
+        "remark": remark
     }
     
-    for i, stage_metric in enumerate(stage_metrics_list):
-        stage_duration_ms = stage_metric.get("stageDuration", 0)
+    for i, stage_row in enumerate(stage_metrics_list):
+        stage_duration_ms = stage_row.stageDuration if hasattr(stage_row, 'stageDuration') else 0
         stage_duration_s = stage_duration_ms / 1000.0
-        records_read = stage_metric.get("recordsRead", 0)
+        records_read = stage_row.recordsRead if hasattr(stage_row, 'recordsRead') else 0
         
         results[f"stage{i}_time"] = stage_duration_s
         results[f"stage{i}_throughput"] = records_read / stage_duration_s if stage_duration_s > 0 else 0
-        results[f"stage{i}_executorRunTime"] = stage_metric.get("executorRunTime", 0)
-        results[f"stage{i}_executorCpuTime"] = stage_metric.get("executorCpuTime", 0)
-        results[f"stage{i}_jvmGCTime"] = stage_metric.get("jvmGCTime", 0)
+        results[f"stage{i}_executorRunTime"] = stage_row.executorRunTime if hasattr(stage_row, 'executorRunTime') else 0
+        results[f"stage{i}_executorCpuTime"] = stage_row.executorCpuTime if hasattr(stage_row, 'executorCpuTime') else 0
+        results[f"stage{i}_jvmGCTime"] = stage_row.jvmGCTime if hasattr(stage_row, 'jvmGCTime') else 0
         results[f"stage{i}_recordsRead"] = records_read
-        results[f"stage{i}_bytesRead"] = stage_metric.get("bytesRead", 0)
+        results[f"stage{i}_bytesRead"] = stage_row.bytesRead if hasattr(stage_row, 'bytesRead') else 0
     
     # Pad missing stages if fewer than NUM_STAGES
     # for i in range(len(stage_metrics_list), NUM_STAGES):
@@ -134,7 +137,7 @@ def bench_pipeline(num_workers: int, mem_per_worker: int, cores_per_worker: int,
     #     results[f"stage{i}_recordsRead"] = 0
     #     results[f"stage{i}_bytesRead"] = 0
     
-    fieldnames = ["num_workers", "mem_per_worker", "cores_per_worker", "dataset_scale", "num_rows", "num_stages"]
+    fieldnames = ["num_workers", "mem_per_worker", "cores_per_worker", "dataset_scale", "num_rows", "num_stages", "remark"]
     
     for i in range(len(stage_metrics_list)):
         fieldnames.extend([

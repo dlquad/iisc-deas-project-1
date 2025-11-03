@@ -20,7 +20,7 @@ def check_api_health(max_retries=30, retry_delay=2):
     return False
 
 
-def run_benchmark(num_workers, mem_per_worker, cores_per_worker, dataset_scale, log_dir):
+def run_benchmark(num_workers, mem_per_worker, cores_per_worker, dataset_scale, log_dir, remark=""):
     """Run a benchmark with specified configuration."""
     
     print(f"\n{'='*60}")
@@ -30,6 +30,7 @@ def run_benchmark(num_workers, mem_per_worker, cores_per_worker, dataset_scale, 
     print(f"  Cores per Worker: {cores_per_worker}")
     print(f"  Dataset Scale: {dataset_scale}")
     print(f"  Log Directory: {log_dir}")
+    print(f"  Remark: {remark}")
     print(f"{'='*60}\n")
     
     try:
@@ -40,7 +41,8 @@ def run_benchmark(num_workers, mem_per_worker, cores_per_worker, dataset_scale, 
                 "mem_per_worker": mem_per_worker,
                 "cores_per_worker": cores_per_worker,
                 "dataset_scale": dataset_scale,
-                "log_dir": log_dir
+                "log_dir": log_dir,
+                "remark": remark
             },
             timeout=600
         )
@@ -93,7 +95,10 @@ def main():
     
     for config in configs:
         config_name = config.get("name", "unnamed")
-        log_dir = f"./logs/{timestamp}/{config_name}"
+        timestamp_suffix = datetime.now().strftime("%Y%m%d_%H%M%S")
+        default_log_dir = f"./logs/{timestamp}/{config_name}"
+        log_dir = config.get("log_dir", default_log_dir)
+        remark = config.get("remark", "")
         
         print(f"\n{'#'*60}")
         print(f"# Configuration: {config_name}")
@@ -104,7 +109,8 @@ def main():
             mem_per_worker=config["mem_per_worker"],
             cores_per_worker=config["cores_per_worker"],
             dataset_scale=config["dataset_scale"],
-            log_dir=log_dir
+            log_dir=log_dir,
+            remark=remark
         )
         
         if not result:

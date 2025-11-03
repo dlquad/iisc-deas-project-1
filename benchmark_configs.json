@@ -2,135 +2,173 @@
   {
     "name": "BASE",
     "num_workers": 1,
-    "mem_per_worker": 2,
+    "mem_per_worker": 120,
     "cores_per_worker": 4,
-    "dataset_scale": 1
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test",
+    "remark": "Baseline configuration with 1 worker"
   },
   {
     "name": "SS-8",
     "num_workers": 2,
-    "mem_per_worker": 4,
+    "mem_per_worker": 60,
     "cores_per_worker": 4,
-    "dataset_scale": 1
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test",
+    "remark": "Strong scaling - 2 workers"
   },
   {
     "name": "SS-16",
     "num_workers": 4,
-    "mem_per_worker": 8,
+    "mem_per_worker": 30,
     "cores_per_worker": 4,
-    "dataset_scale": 1
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test",
+    "remark": "Strong scaling - 4 workers"
   },
   {
     "name": "SS-32",
     "num_workers": 8,
-    "mem_per_worker": 8,
+    "mem_per_worker": 15,
     "cores_per_worker": 4,
-    "dataset_scale": 1
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test",
+    "remark": "Strong scaling - 8 workers"
   },
   {
     "name": "SS-64",
     "num_workers": 16,
-    "mem_per_worker": 16,
+    "mem_per_worker": 7,
     "cores_per_worker": 4,
-    "dataset_scale": 1
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test",
+    "remark": "Strong scaling - 16 workers"
   },
   {
     "name": "SS-96",
     "num_workers": 24,
-    "mem_per_worker": 24,
+    "mem_per_worker": 5,
     "cores_per_worker": 4,
-    "dataset_scale": 1
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test",
+    "remark": "Strong scaling - 24 workers"
   },
   {
     "name": "WS-8",
     "num_workers": 2,
-    "mem_per_worker": 4,
+    "mem_per_worker": 60,
     "cores_per_worker": 4,
-    "dataset_scale": 0.1
+    "dataset_scale": 0.1,
+    "log_dir": "./logs/project-test",
+    "remark": "Weak scaling - 2 workers, 10% dataset"
   },
   {
     "name": "WS-16",
     "num_workers": 4,
-    "mem_per_worker": 8,
+    "mem_per_worker": 30,
     "cores_per_worker": 4,
-    "dataset_scale": 0.2
+    "dataset_scale": 0.2,
+    "log_dir": "./logs/project-test",
+    "remark": "Weak scaling - 4 workers, 20% dataset"
   },
   {
     "name": "WS-32",
     "num_workers": 8,
-    "mem_per_worker": 8,
+    "mem_per_worker": 15,
     "cores_per_worker": 4,
-    "dataset_scale": 0.4
+    "dataset_scale": 0.4,
+    "log_dir": "./logs/project-test",
+    "remark": "Weak scaling - 8 workers, 40% dataset"
   },
   {
     "name": "WS-64",
     "num_workers": 16,
-    "mem_per_worker": 16,
+    "mem_per_worker": 7,
     "cores_per_worker": 4,
-    "dataset_scale": 0.8
+    "dataset_scale": 0.8,
+    "log_dir": "./logs/project-test",
+    "remark": "Weak scaling - 16 workers, 80% dataset"
   },
   {
     "name": "WS-96",
     "num_workers": 24,
-    "mem_per_worker": 24,
+    "mem_per_worker": 5,
     "cores_per_worker": 4,
-    "dataset_scale": 1.0
+    "dataset_scale": 1.0,
+    "log_dir": "./logs/project-test",
+    "remark": "Weak scaling - 24 workers, 100% dataset"
   },
   {
     "name": "W-1-96",
     "num_workers": 1,
-    "mem_per_worker": 64,
+    "mem_per_worker": 120,
     "cores_per_worker": 96,
-    "dataset_scale": 0.5
+    "dataset_scale": 0.5,
+    "log_dir": "./logs/project-test",
+    "remark": "Single worker with 96 cores"
   },
   {
     "name": "W-2-48",
     "num_workers": 2,
-    "mem_per_worker": 32,
+    "mem_per_worker": 60,
     "cores_per_worker": 48,
-    "dataset_scale": 0.5
+    "dataset_scale": 0.5,
+    "log_dir": "./logs/project-test",
+    "remark": "2 workers with 48 cores each"
   },
   {
     "name": "W-4-24",
     "num_workers": 4,
-    "mem_per_worker": 16,
+    "mem_per_worker": 30,
     "cores_per_worker": 24,
-    "dataset_scale": 0.5
+    "dataset_scale": 0.5,
+    "log_dir": "./logs/project-test",
+    "remark": "4 workers with 24 cores each"
   },
   {
     "name": "W-6-16",
     "num_workers": 6,
-    "mem_per_worker": 12,
+    "mem_per_worker": 20,
     "cores_per_worker": 16,
-    "dataset_scale": 0.5
+    "dataset_scale": 0.5,
+    "log_dir": "./logs/project-test",
+    "remark": "6 workers with 16 cores each"
   },
   {
     "name": "W-8-12",
     "num_workers": 8,
-    "mem_per_worker": 8,
+    "mem_per_worker": 15,
     "cores_per_worker": 12,
-    "dataset_scale": 0.5
+    "dataset_scale": 0.5,
+    "log_dir": "./logs/project-test",
+    "remark": "8 workers with 12 cores each"
   },
   {
     "name": "W-12-8",
     "num_workers": 12,
-    "mem_per_worker": 8,
+    "mem_per_worker": 10,
     "cores_per_worker": 8,
-    "dataset_scale": 0.5
+    "dataset_scale": 0.5,
+    "log_dir": "./logs/project-test",
+    "remark": "12 workers with 8 cores each"
   },
   {
     "name": "W-16-6",
     "num_workers": 16,
-    "mem_per_worker": 4,
+    "mem_per_worker": 7,
     "cores_per_worker": 6,
-    "dataset_scale": 0.5
+    "dataset_scale": 0.5,
+    "log_dir": "./logs/project-test",
+    "remark": "16 workers with 6 cores each"
   },
   {
     "name": "W-24-4",
     "num_workers": 24,
-    "mem_per_worker": 4,
+    "mem_per_worker": 5,
     "cores_per_worker": 4,
-    "dataset_scale": 0.5
+    "dataset_scale": 0.5,
+    "log_dir": "./logs/project-test",
+    "remark": "24 workers with 4 cores each"
   }
 ]
 
