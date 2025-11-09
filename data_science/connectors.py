@@ -24,7 +24,7 @@ def getNewSparkSession(num_workers: int = 1, mem_per_worker: int = 10, cores_per
     if spark:
         spark.stop()
     
-    if SPARK_MASTER_HOST.startswith("local"):
+    if SPARK_MASTER_HOST.startswith("local[*]"):
         master_url = SPARK_MASTER_HOST
     else:
         master_url = f"spark://{SPARK_MASTER_HOST}:7077"
@@ -42,7 +42,7 @@ def getNewSparkSession(num_workers: int = 1, mem_per_worker: int = 10, cores_per
     
     extra_java_options = " ".join(java_options)
 
-    if not master_url.startswith("local"):
+    if not master_url.startswith("local[*]"):
         builder = builder \
             .config("spark.executor.cores", str(cores_per_worker)) \
             .config("spark.executor.memory", f"{mem_per_worker}g") \
@@ -53,6 +53,7 @@ def getNewSparkSession(num_workers: int = 1, mem_per_worker: int = 10, cores_per
     
     builder = builder \
         .config("spark.driver.memory", DRIVER_MEMORY) \
+        .config("spark.driver.maxResultSize", "2g") \
         .config("spark.jars.packages", "ch.cern.sparkmeasure:spark-measure_2.13:0.27")
 
     if extra_java_options:

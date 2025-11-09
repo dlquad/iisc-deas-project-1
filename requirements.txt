@@ -8,3 +8,5 @@ requests
 tabulate
 sparkmeasure
 pyyaml
+wordcloud
+nltk

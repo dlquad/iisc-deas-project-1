@@ -4,10 +4,10 @@ import json
 import sys
 from datetime import datetime
 
-API_URL = "http://localhost:8000"
+API_URL = "http://localhost:8001"
 
 
-def check_api_health(max_retries=30, retry_delay=2):
+def check_api_health(max_retries=60, retry_delay=2):
     """Check if the API is running with retries."""
     for i in range(max_retries):
         try:
@@ -20,11 +20,12 @@ def check_api_health(max_retries=30, retry_delay=2):
     return False
 
 
-def run_benchmark(num_workers, mem_per_worker, cores_per_worker, dataset_scale, log_dir, remark=""):
+def run_benchmark(num_workers, mem_per_worker, cores_per_worker, dataset_scale, log_dir, remark="", benchmark_name=""):
     """Run a benchmark with specified configuration."""
     
     print(f"\n{'='*60}")
     print(f"Running Benchmark:")
+    print(f"  Name: {benchmark_name}")
     print(f"  Workers: {num_workers}")
     print(f"  Memory per Worker: {mem_per_worker} GB")
     print(f"  Cores per Worker: {cores_per_worker}")
@@ -42,9 +43,10 @@ def run_benchmark(num_workers, mem_per_worker, cores_per_worker, dataset_scale, 
                 "cores_per_worker": cores_per_worker,
                 "dataset_scale": dataset_scale,
                 "log_dir": log_dir,
-                "remark": remark
+                "remark": remark,
+                "benchmark_name": benchmark_name
             },
-            timeout=600
+            timeout=1200
         )
         
         if response.status_code == 200:
@@ -95,7 +97,6 @@ def main():
     
     for config in configs:
         config_name = config.get("name", "unnamed")
-        timestamp_suffix = datetime.now().strftime("%Y%m%d_%H%M%S")
         default_log_dir = f"./logs/{timestamp}/{config_name}"
         log_dir = config.get("log_dir", default_log_dir)
         remark = config.get("remark", "")
@@ -110,7 +111,8 @@ def main():
             cores_per_worker=config["cores_per_worker"],
             dataset_scale=config["dataset_scale"],
             log_dir=log_dir,
-            remark=remark
+            remark=remark,
+            benchmark_name=config_name
         )
         
         if not result:

@@ -15,6 +15,7 @@ class BenchmarkRequest(BaseModel):
     dataset_scale: float = Field(..., ge=0.0, le=1.0, description="Dataset scale factor (0 to 1)")
     log_dir: str = Field(..., description="Directory to save benchmark results")
     remark: str = Field(default="", description="Short comment about the benchmark configuration")
+    benchmark_name: str = Field(default="", description="Name of the benchmark configuration")
 
 
 class BenchmarkResponse(BaseModel):
@@ -65,7 +66,8 @@ def run_benchmark(request: BenchmarkRequest) -> Dict[str, Any]:
             cores_per_worker=request.cores_per_worker,
             dataset_scale=request.dataset_scale,
             log_dir=request.log_dir,
-            remark=request.remark
+            remark=request.remark,
+            benchmark_name=request.benchmark_name
         )
         
         return {

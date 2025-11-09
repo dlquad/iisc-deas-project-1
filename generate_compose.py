@@ -81,19 +81,19 @@ def generate_docker_compose(num_workers: int, mem_per_worker: int, cores_per_wor
                 "container_name": "iisc-deas-server",
                 "environment": {
                     "SPARK_MASTER_HOST": "spark-master",
-                    "DATASET_PATH": "/app/data/train.csv",
+                    "DATASET_PATH": "/app/data/combined_final.csv",
                     "DRIVER_MEMORY": "16g",
                     "http_proxy": "http://proxy-dmz.intel.com:912",
                     "https_proxy": "http://proxy-dmz.intel.com:912",
                     "no_proxy": "localhost,spark-master,spark-worker-1,spark-worker-2"
                 },
-                "ports": ["8000:8000", "4040:4040"],
+                "ports": ["8001:8000", "4040:4040"],
                 "volumes": [
                     # "./:/app",
                     "./data:/app/data",
                     "./logs:/app/logs"
                 ],
-                "depends_on": ["spark-master"],
+                "depends_on": {},
                 "networks": ["spark-network"]
             }
         },
@@ -102,6 +102,11 @@ def generate_docker_compose(num_workers: int, mem_per_worker: int, cores_per_wor
                 "driver": "bridge"
             }
         }
+    }
+    
+    # Add spark-master to fastapi depends_on
+    compose_config["services"]["fastapi"]["depends_on"]["spark-master"] = {
+        "condition": "service_started"
     }
     
     for i in range(1, num_workers + 1):
@@ -120,14 +125,31 @@ def generate_docker_compose(num_workers: int, mem_per_worker: int, cores_per_wor
                 "SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED": "no",
                 "SPARK_SSL_ENABLED": "no",
                 "SPARK_USER": "spark",
-                "SPARK_DAEMON_MEMORY": "1g"
+                "SPARK_DAEMON_MEMORY": "1g",
+                "HOME": "/opt/bitnami/spark",
+                "http_proxy": "http://proxy-dmz.intel.com:912",
+                "https_proxy": "http://proxy-dmz.intel.com:912",
+                "no_proxy": "localhost,spark-master,spark-worker-1,spark-worker-2"
             },
             "ports": [f"{8080 + i}:8081"],
             "volumes": [
-                "./data:/app/data"
+                "./data:/app/data",
+                "./worker-init.sh:/docker-entrypoint-initdb.d/worker-init.sh"
             ],
             "depends_on": ["spark-master"],
+            "healthcheck": {
+                "test": ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8081').raise_for_status()"],
+                "interval": "10s",
+                "timeout": "5s",
+                "retries": 15,
+                "start_period": "30s"
+            },
             "networks": ["spark-network"]
+        }
+        
+        # Add this worker to fastapi's depends_on with health check condition
+        compose_config["services"]["fastapi"]["depends_on"][worker_name] = {
+            "condition": "service_healthy"
         }
     
     with open(output_file, 'w') as f:

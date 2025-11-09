@@ -41,7 +41,7 @@ for i in $(seq 0 $(($NUM_CONFIGS - 1))); do
     python generate_compose.py "$NUM_WORKERS" "$MEM_PER_WORKER" "$CORES_PER_WORKER"
     
     echo "🚀 Starting Docker Compose deployment..."
-    docker compose up -d > /dev/null 2>&1
+    docker compose up -d > /dev/null
     
     echo "⏳ Waiting for services to be ready..."
     sleep 15

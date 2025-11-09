@@ -103,7 +103,7 @@
     "num_workers": 1,
     "mem_per_worker": 120,
     "cores_per_worker": 96,
-    "dataset_scale": 0.5,
+    "dataset_scale": 1,
     "log_dir": "./logs/project-test",
     "remark": "Single worker with 96 cores"
   },
@@ -112,7 +112,7 @@
     "num_workers": 2,
     "mem_per_worker": 60,
     "cores_per_worker": 48,
-    "dataset_scale": 0.5,
+    "dataset_scale": 1,
     "log_dir": "./logs/project-test",
     "remark": "2 workers with 48 cores each"
   },
@@ -121,7 +121,7 @@
     "num_workers": 4,
     "mem_per_worker": 30,
     "cores_per_worker": 24,
-    "dataset_scale": 0.5,
+    "dataset_scale": 1,
     "log_dir": "./logs/project-test",
     "remark": "4 workers with 24 cores each"
   },
@@ -130,7 +130,7 @@
     "num_workers": 8,
     "mem_per_worker": 15,
     "cores_per_worker": 12,
-    "dataset_scale": 0.5,
+    "dataset_scale": 1,
     "log_dir": "./logs/project-test",
     "remark": "8 workers with 12 cores each"
   },
@@ -139,7 +139,7 @@
     "num_workers": 12,
     "mem_per_worker": 10,
     "cores_per_worker": 8,
-    "dataset_scale": 0.5,
+    "dataset_scale": 1,
     "log_dir": "./logs/project-test",
     "remark": "12 workers with 8 cores each"
   },
@@ -148,7 +148,7 @@
     "num_workers": 16,
     "mem_per_worker": 7,
     "cores_per_worker": 6,
-    "dataset_scale": 0.5,
+    "dataset_scale": 1,
     "log_dir": "./logs/project-test",
     "remark": "16 workers with 6 cores each"
   },
@@ -157,7 +157,7 @@
     "num_workers": 24,
     "mem_per_worker": 5,
     "cores_per_worker": 4,
-    "dataset_scale": 0.5,
+    "dataset_scale": 1,
     "log_dir": "./logs/project-test",
     "remark": "24 workers with 4 cores each"
   }

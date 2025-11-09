@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
@@ -12,15 +12,6 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}"
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
-
-# RUN useradd -u 1001 --badname -g 0 -M -d /home/appuser 1001
-# RUN mkdir -p /app/logs
-# RUN mkdir -p /home/appuser
-# RUN chown -R 1001:0 /app /home/appuser
-# RUN chmod -R 755 /app /home/appuser
-
-# ENV HOME=/home/appuser
-# USER 1001
 
 EXPOSE 8000
 

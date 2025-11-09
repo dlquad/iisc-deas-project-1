@@ -1,8 +1,14 @@
 import os
 from urllib.parse import urlparse
+import nltk
+
+nltk.download('punkt_tab')
+nltk.download('stopwords')
+# nltk.download('wordnet', quiet=True)
+# nltk.download('vader_lexicon', quiet=True)
 
 SPARK_MASTER_HOST = os.getenv("SPARK_MASTER_HOST", "local[*]")
-DATASET_PATH = os.getenv("DATASET_PATH", "./train.csv")
+DATASET_PATH = os.getenv("DATASET_PATH", "./combined_final.csv")
 DRIVER_MEMORY = os.getenv("DRIVER_MEMORY", "16g")
 
 HTTP_PROXY = os.getenv("http_proxy")
