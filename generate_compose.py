@@ -51,13 +51,14 @@ def generate_docker_compose(num_workers: int, mem_per_worker: int, cores_per_wor
         print(f"Error: Could not allocate cores for all workers. Requested: {num_workers}, Allocated: {len(core_allocations)}")
         sys.exit(1)
 
-    spark_worker_cores = max(1, cores_per_worker - 1)
+    spark_worker_cores = cores_per_worker
 
     compose_config = {
         "services": {
             "spark-master": {
                 "image": "docker.io/bitnamilegacy/spark:latest",
                 "container_name": "spark-master",
+                "cpuset": "48-51",
                 "environment": {
                     "SPARK_MODE": "master",
                     "SPARK_RPC_AUTHENTICATION_ENABLED": "no",

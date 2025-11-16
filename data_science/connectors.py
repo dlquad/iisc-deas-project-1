@@ -30,7 +30,7 @@ def getNewSparkSession(num_workers: int = 1, mem_per_worker: int = 10, cores_per
         master_url = f"spark://{SPARK_MASTER_HOST}:7077"
     
     builder = SparkSession.builder.appName("DEAS-Project-1").master(master_url)
-    cores_per_worker = max(1, cores_per_worker - 2)
+    # cores_per_worker = max(1, cores_per_worker - 1)
     
     java_options = []
     if HTTP_PROXY_HOST and HTTP_PROXY_PORT:
