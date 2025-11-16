@@ -25,9 +25,6 @@ services:
       SPARK_MASTER_HOST: spark-master
       DATASET_PATH: /app/data/combined_final.csv
       DRIVER_MEMORY: 16g
-      http_proxy: http://proxy-dmz.intel.com:912
-      https_proxy: http://proxy-dmz.intel.com:912
-      no_proxy: localhost,spark-master,spark-worker-1,spark-worker-2
     ports:
     - 8001:8000
     - 4040:4040
@@ -79,9 +76,6 @@ services:
       SPARK_USER: spark
       SPARK_DAEMON_MEMORY: 1g
       HOME: /opt/bitnami/spark
-      http_proxy: http://proxy-dmz.intel.com:912
-      https_proxy: http://proxy-dmz.intel.com:912
-      no_proxy: localhost,spark-master,spark-worker-1,spark-worker-2
     ports:
     - 8081:8081
     volumes:

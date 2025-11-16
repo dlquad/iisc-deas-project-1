@@ -2,10 +2,10 @@ import yaml
 import sys
 
 NUMA_NODES = {
-    0: list(range(0, 24)),
-    1: list(range(24, 48)),
-    2: list(range(48, 72)),
-    3: list(range(72, 96)),
+    0: list(range(0, 32)),
+    1: list(range(32, 64)),
+    2: list(range(64, 96)),
+    3: list(range(96, 128)),
 }
 ALL_CORES = [core for node_cores in NUMA_NODES.values() for core in node_cores]
 
@@ -84,9 +84,9 @@ def generate_docker_compose(num_workers: int, mem_per_worker: int, cores_per_wor
                     "SPARK_MASTER_HOST": "spark-master",
                     "DATASET_PATH": "/app/data/combined_final.csv",
                     "DRIVER_MEMORY": "16g",
-                    "http_proxy": "http://proxy-dmz.intel.com:912",
-                    "https_proxy": "http://proxy-dmz.intel.com:912",
-                    "no_proxy": "localhost,spark-master,spark-worker-1,spark-worker-2"
+                    # "http_proxy": "http://proxy-dmz.intel.com:912",
+                    # "https_proxy": "http://proxy-dmz.intel.com:912",
+                    # "no_proxy": "localhost,spark-master,spark-worker-1,spark-worker-2"
                 },
                 "ports": ["8001:8000", "4040:4040"],
                 "volumes": [
@@ -128,9 +128,9 @@ def generate_docker_compose(num_workers: int, mem_per_worker: int, cores_per_wor
                 "SPARK_USER": "spark",
                 "SPARK_DAEMON_MEMORY": "1g",
                 "HOME": "/opt/bitnami/spark",
-                "http_proxy": "http://proxy-dmz.intel.com:912",
-                "https_proxy": "http://proxy-dmz.intel.com:912",
-                "no_proxy": "localhost,spark-master,spark-worker-1,spark-worker-2"
+                # "http_proxy": "http://proxy-dmz.intel.com:912",
+                # "https_proxy": "http://proxy-dmz.intel.com:912",
+                # "no_proxy": "localhost,spark-master,spark-worker-1,spark-worker-2"
             },
             "ports": [f"{8080 + i}:8081"],
             "volumes": [

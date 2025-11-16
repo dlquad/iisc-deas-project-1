@@ -38,7 +38,7 @@ for i in $(seq 0 $(($NUM_CONFIGS - 1))); do
     docker compose down --remove-orphans 2>/dev/null || true
     
     echo "🔨 Generating docker-compose.yaml..."
-    python generate_compose.py "$NUM_WORKERS" "$MEM_PER_WORKER" "$CORES_PER_WORKER"
+    python3 generate_compose.py "$NUM_WORKERS" "$MEM_PER_WORKER" "$CORES_PER_WORKER"
     
     echo "🚀 Starting Docker Compose deployment..."
     docker compose up -d > /dev/null
@@ -48,7 +48,7 @@ for i in $(seq 0 $(($NUM_CONFIGS - 1))); do
     
     echo "📊 Running benchmark..."
     echo "$CONFIG" | jq -s '.' > /tmp/current_config.json
-    python benchmark.py /tmp/current_config.json
+    python3 benchmark.py /tmp/current_config.json
     
     echo ""
     echo "🛑 Stopping Docker Compose deployment..."

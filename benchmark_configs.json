@@ -51,25 +51,25 @@
     "cores_per_worker": 24,
     "dataset_scale": 1,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Strong scaling - 1 worker, 24 cores (saturated NUMA)"
+    "remark": "Strong scaling - 1 worker, 24 cores (single NUMA)"
   },
   {
     "name": "SS-28",
-    "num_workers": 2,
-    "mem_per_worker": 60,
-    "cores_per_worker": 14,
+    "num_workers": 1,
+    "mem_per_worker": 120,
+    "cores_per_worker": 28,
     "dataset_scale": 1,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Strong scaling - 2 workers, 14 cores each (2 NUMAs)"
+    "remark": "Strong scaling - 1 worker, 28 cores (single NUMA)"
   },
   {
     "name": "SS-32",
-    "num_workers": 2,
-    "mem_per_worker": 60,
-    "cores_per_worker": 16,
+    "num_workers": 1,
+    "mem_per_worker": 120,
+    "cores_per_worker": 32,
     "dataset_scale": 1,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Strong scaling - 2 workers, 16 cores each (2 NUMAs)"
+    "remark": "Strong scaling - 1 worker, 32 cores (saturated NUMA)"
   },
   {
     "name": "SS-36",
@@ -105,7 +105,43 @@
     "cores_per_worker": 24,
     "dataset_scale": 1,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Strong scaling - 2 workers, 24 cores each (2 saturated NUMAs)"
+    "remark": "Strong scaling - 2 workers, 24 cores each (2 NUMAs)"
+  },
+  {
+    "name": "SS-52",
+    "num_workers": 2,
+    "mem_per_worker": 60,
+    "cores_per_worker": 26,
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test-single-socket-NUMA-local",
+    "remark": "Strong scaling - 2 workers, 26 cores each (2 NUMAs)"
+  },
+  {
+    "name": "SS-56",
+    "num_workers": 2,
+    "mem_per_worker": 60,
+    "cores_per_worker": 28,
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test-single-socket-NUMA-local",
+    "remark": "Strong scaling - 2 workers, 28 cores each (2 NUMAs)"
+  },
+  {
+    "name": "SS-60",
+    "num_workers": 2,
+    "mem_per_worker": 60,
+    "cores_per_worker": 30,
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test-single-socket-NUMA-local",
+    "remark": "Strong scaling - 2 workers, 30 cores each (2 NUMAs)"
+  },
+  {
+    "name": "SS-64",
+    "num_workers": 2,
+    "mem_per_worker": 60,
+    "cores_per_worker": 32,
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test-single-socket-NUMA-local",
+    "remark": "Strong scaling - 2 workers, 32 cores each (2 saturated NUMAs)"
   },
   {
     "name": "WS-4",
@@ -157,117 +193,144 @@
     "num_workers": 1,
     "mem_per_worker": 120,
     "cores_per_worker": 24,
-    "dataset_scale": 0.5,
+    "dataset_scale": 0.375,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Weak scaling - 1 worker, 24 cores, 50% dataset (saturated NUMA)"
+    "remark": "Weak scaling - 1 worker, 24 cores, 37.5% dataset (single NUMA)"
   },
   {
     "name": "WS-28",
-    "num_workers": 2,
-    "mem_per_worker": 60,
-    "cores_per_worker": 14,
-    "dataset_scale": 0.583,
+    "num_workers": 1,
+    "mem_per_worker": 120,
+    "cores_per_worker": 28,
+    "dataset_scale": 0.4375,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Weak scaling - 2 workers, 14 cores each, 58.3% dataset (2 NUMAs)"
+    "remark": "Weak scaling - 1 worker, 28 cores, 43.75% dataset (single NUMA)"
   },
   {
     "name": "WS-32",
-    "num_workers": 2,
-    "mem_per_worker": 60,
-    "cores_per_worker": 16,
-    "dataset_scale": 0.667,
+    "num_workers": 1,
+    "mem_per_worker": 120,
+    "cores_per_worker": 32,
+    "dataset_scale": 0.5,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Weak scaling - 2 workers, 16 cores each, 66.7% dataset (2 NUMAs)"
+    "remark": "Weak scaling - 1 worker, 32 cores, 50% dataset (saturated NUMA)"
   },
   {
     "name": "WS-36",
     "num_workers": 2,
     "mem_per_worker": 60,
     "cores_per_worker": 18,
-    "dataset_scale": 0.75,
+    "dataset_scale": 0.5625,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Weak scaling - 2 workers, 18 cores each, 75% dataset (2 NUMAs)"
+    "remark": "Weak scaling - 2 workers, 18 cores each, 56.25% dataset (2 NUMAs)"
   },
   {
     "name": "WS-40",
     "num_workers": 2,
     "mem_per_worker": 60,
     "cores_per_worker": 20,
-    "dataset_scale": 0.833,
+    "dataset_scale": 0.625,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Weak scaling - 2 workers, 20 cores each, 83.3% dataset (2 NUMAs)"
+    "remark": "Weak scaling - 2 workers, 20 cores each, 62.5% dataset (2 NUMAs)"
   },
   {
     "name": "WS-44",
     "num_workers": 2,
     "mem_per_worker": 60,
     "cores_per_worker": 22,
-    "dataset_scale": 0.917,
+    "dataset_scale": 0.6875,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Weak scaling - 2 workers, 22 cores each, 91.7% dataset (2 NUMAs)"
+    "remark": "Weak scaling - 2 workers, 22 cores each, 68.75% dataset (2 NUMAs)"
   },
   {
     "name": "WS-48",
     "num_workers": 2,
     "mem_per_worker": 60,
     "cores_per_worker": 24,
-    "dataset_scale": 1.0,
+    "dataset_scale": 0.75,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Weak scaling - 2 workers, 24 cores each, 100% dataset (2 saturated NUMAs)"
+    "remark": "Weak scaling - 2 workers, 24 cores each, 75% dataset (2 NUMAs)"
   },
   {
-    "name": "W-1-48",
-    "num_workers": 1,
-    "mem_per_worker": 120,
-    "cores_per_worker": 48,
-    "dataset_scale": 1,
-    "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "Single worker with 48 cores"
-  },
-  {
-    "name": "W-2-24",
+    "name": "WS-52",
     "num_workers": 2,
     "mem_per_worker": 60,
-    "cores_per_worker": 24,
-    "dataset_scale": 1,
+    "cores_per_worker": 26,
+    "dataset_scale": 0.8125,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "2 workers with 24 cores each"
+    "remark": "Weak scaling - 2 workers, 26 cores each, 81.25% dataset (2 NUMAs)"
   },
   {
-    "name": "W-4-12",
+    "name": "WS-56",
+    "num_workers": 2,
+    "mem_per_worker": 60,
+    "cores_per_worker": 28,
+    "dataset_scale": 0.875,
+    "log_dir": "./logs/project-test-single-socket-NUMA-local",
+    "remark": "Weak scaling - 2 workers, 28 cores each, 87.5% dataset (2 NUMAs)"
+  },
+  {
+    "name": "WS-60",
+    "num_workers": 2,
+    "mem_per_worker": 60,
+    "cores_per_worker": 30,
+    "dataset_scale": 0.9375,
+    "log_dir": "./logs/project-test-single-socket-NUMA-local",
+    "remark": "Weak scaling - 2 workers, 30 cores each, 93.75% dataset (2 NUMAs)"
+  },
+  {
+    "name": "WS-64",
+    "num_workers": 2,
+    "mem_per_worker": 60,
+    "cores_per_worker": 32,
+    "dataset_scale": 1.0,
+    "log_dir": "./logs/project-test-single-socket-NUMA-local",
+    "remark": "Weak scaling - 2 workers, 32 cores each, 100% dataset (2 saturated NUMAs)"
+  },
+  {
+    "name": "W-1-64",
+    "num_workers": 1,
+    "mem_per_worker": 120,
+    "cores_per_worker": 64,
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test-single-socket-NUMA-local",
+    "remark": "Single worker with 64 cores"
+  },
+  {
+    "name": "W-2-32",
+    "num_workers": 2,
+    "mem_per_worker": 60,
+    "cores_per_worker": 32,
+    "dataset_scale": 1,
+    "log_dir": "./logs/project-test-single-socket-NUMA-local",
+    "remark": "2 workers with 32 cores each"
+  },
+  {
+    "name": "W-4-16",
     "num_workers": 4,
     "mem_per_worker": 30,
-    "cores_per_worker": 12,
+    "cores_per_worker": 16,
     "dataset_scale": 1,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "4 workers with 12 cores each"
+    "remark": "4 workers with 16 cores each"
   },
   {
-    "name": "W-6-8",
-    "num_workers": 6,
-    "mem_per_worker": 20,
+    "name": "W-8-8",
+    "num_workers": 8,
+    "mem_per_worker": 15,
     "cores_per_worker": 8,
     "dataset_scale": 1,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "6 workers with 8 cores each"
+    "remark": "8 workers with 8 cores each"
   },
   {
-    "name": "W-8-6",
-    "num_workers": 8,
-    "mem_per_worker": 15,
-    "cores_per_worker": 6,
-    "dataset_scale": 1,
-    "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "8 workers with 6 cores each"
-  },
-  {
-    "name": "W-12-4",
-    "num_workers": 12,
-    "mem_per_worker": 10,
+    "name": "W-16-4",
+    "num_workers": 16,
+    "mem_per_worker": 7,
     "cores_per_worker": 4,
     "dataset_scale": 1,
     "log_dir": "./logs/project-test-single-socket-NUMA-local",
-    "remark": "12 workers with 4 cores each"
+    "remark": "16 workers with 4 cores each"
   }
 ]
 
