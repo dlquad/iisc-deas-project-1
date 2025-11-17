@@ -1,156 +1,93 @@
 [
   {
-    "name": "SS-8",
+    "name": "SS-4",
     "num_workers": 1,
     "mem_per_worker": 384,
-    "cores_per_worker": 8,
+    "cores_per_worker": 4,
     "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Strong scaling - 1 worker, 8 cores, 8 total cores"
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Strong scaling - 1 worker, 4 cores, 4 total cores"
+  },
+  {
+    "name": "SS-8",
+    "num_workers": 2,
+    "mem_per_worker": 192,
+    "cores_per_worker": 4,
+    "dataset_scale": 1,
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Strong scaling - 2 workers, 4 cores each, 8 total cores"
   },
   {
     "name": "SS-16",
-    "num_workers": 2,
-    "mem_per_worker": 192,
-    "cores_per_worker": 8,
+    "num_workers": 4,
+    "mem_per_worker": 96,
+    "cores_per_worker": 4,
     "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Strong scaling - 2 workers, 8 cores each, 16 total cores"
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Strong scaling - 4 workers, 4 cores each, 16 total cores"
   },
   {
     "name": "SS-32",
-    "num_workers": 4,
-    "mem_per_worker": 96,
-    "cores_per_worker": 8,
+    "num_workers": 8,
+    "mem_per_worker": 48,
+    "cores_per_worker": 4,
     "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Strong scaling - 4 workers, 8 cores each, 32 total cores"
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Strong scaling - 8 workers, 4 cores each, 32 total cores"
   },
   {
     "name": "SS-64",
-    "num_workers": 8,
-    "mem_per_worker": 48,
-    "cores_per_worker": 8,
-    "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Strong scaling - 8 workers, 8 cores each, 64 total cores"
-  },
-  {
-    "name": "SS-96",
-    "num_workers": 12,
-    "mem_per_worker": 32,
-    "cores_per_worker": 8,
-    "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Strong scaling - 12 workers, 8 cores each, 96 total cores"
-  },
-  {
-    "name": "SS-128",
     "num_workers": 16,
     "mem_per_worker": 24,
-    "cores_per_worker": 8,
+    "cores_per_worker": 4,
     "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Strong scaling - 16 workers, 8 cores each, 128 total cores"
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Strong scaling - 16 workers, 4 cores each, 64 total cores"
+  },
+  {
+    "name": "WS-4",
+    "num_workers": 1,
+    "mem_per_worker": 384,
+    "cores_per_worker": 4,
+    "dataset_scale": 0.0625,
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Weak scaling - 1 worker, 4 cores, 6.25% dataset"
   },
   {
     "name": "WS-8",
-    "num_workers": 1,
-    "mem_per_worker": 384,
-    "cores_per_worker": 8,
-    "dataset_scale": 0.0625,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Weak scaling - 1 worker, 8 cores, 6.25% dataset"
+    "num_workers": 2,
+    "mem_per_worker": 192,
+    "cores_per_worker": 4,
+    "dataset_scale": 0.125,
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Weak scaling - 2 workers, 4 cores each, 12.5% dataset"
   },
   {
     "name": "WS-16",
-    "num_workers": 2,
-    "mem_per_worker": 192,
-    "cores_per_worker": 8,
-    "dataset_scale": 0.125,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Weak scaling - 2 workers, 8 cores each, 12.5% dataset"
+    "num_workers": 4,
+    "mem_per_worker": 96,
+    "cores_per_worker": 4,
+    "dataset_scale": 0.25,
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Weak scaling - 4 workers, 4 cores each, 25% dataset"
   },
   {
     "name": "WS-32",
-    "num_workers": 4,
-    "mem_per_worker": 96,
-    "cores_per_worker": 8,
-    "dataset_scale": 0.25,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Weak scaling - 4 workers, 8 cores each, 25% dataset"
+    "num_workers": 8,
+    "mem_per_worker": 48,
+    "cores_per_worker": 4,
+    "dataset_scale": 0.5,
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Weak scaling - 8 workers, 4 cores each, 50% dataset"
   },
   {
     "name": "WS-64",
-    "num_workers": 8,
-    "mem_per_worker": 48,
-    "cores_per_worker": 8,
-    "dataset_scale": 0.5,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Weak scaling - 8 workers, 8 cores each, 50% dataset"
-  },
-  {
-    "name": "WS-96",
-    "num_workers": 12,
-    "mem_per_worker": 32,
-    "cores_per_worker": 8,
-    "dataset_scale": 0.75,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Weak scaling - 12 workers, 8 cores each, 75% dataset"
-  },
-  {
-    "name": "WS-128",
     "num_workers": 16,
     "mem_per_worker": 24,
-    "cores_per_worker": 8,
-    "dataset_scale": 1.0,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Weak scaling - 16 workers, 8 cores each, 100% dataset"
-  },
-  {
-    "name": "W-1-128",
-    "num_workers": 1,
-    "mem_per_worker": 384,
-    "cores_per_worker": 128,
-    "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "Single worker with 128 cores"
-  },
-  {
-    "name": "W-2-64",
-    "num_workers": 2,
-    "mem_per_worker": 192,
-    "cores_per_worker": 64,
-    "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "2 workers with 64 cores each"
-  },
-  {
-    "name": "W-4-32",
-    "num_workers": 4,
-    "mem_per_worker": 96,
-    "cores_per_worker": 32,
-    "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "4 workers with 32 cores each"
-  },
-  {
-    "name": "W-16-8",
-    "num_workers": 16,
-    "mem_per_worker": 24,
-    "cores_per_worker": 8,
-    "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "16 workers with 8 cores each"
-  },
-  {
-    "name": "W-32-4",
-    "num_workers": 32,
-    "mem_per_worker": 12,
     "cores_per_worker": 4,
-    "dataset_scale": 1,
-    "log_dir": "./logs/6767P/reduced-runs-new-config",
-    "remark": "32 workers with 4 cores each"
+    "dataset_scale": 1.0,
+    "log_dir": "./logs/6767P/4-cores-per-worker",
+    "remark": "Weak scaling - 16 workers, 4 cores each, 100% dataset"
   }
 ]
 
