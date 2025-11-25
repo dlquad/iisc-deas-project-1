@@ -23,7 +23,8 @@ For detailed setup and usage instructions, see **[USAGE_README.md](docs/USAGE_RE
 
 ## 👥 Contributors
 
-Ritik Agrawal (ritikagarwal@iisc.ac.in)
-Sanjana R (sanjana2@iisc.ac.in)
-Himanshu Sharma (himanshu5@iisc.ac.in)
-Mayank Teckchandani (tmayank@iisc.ac.in)
+- Ritik Agrawal (ritikagarwal@iisc.ac.in)
+- Sanjana R (sanjana2@iisc.ac.in)
+- Himanshu Sharma (himanshu5@iisc.ac.in)
+- Mayank Teckchandani (tmayank@iisc.ac.in)
+
