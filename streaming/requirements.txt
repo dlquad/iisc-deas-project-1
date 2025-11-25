@@ -1,0 +1,9 @@
+confluent_kafka
+bs4
+requests
+pyspark
+nltk
+tensorflow
+huggingface_hub
+numpy
+dill
