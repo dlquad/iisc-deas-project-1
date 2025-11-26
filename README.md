@@ -9,8 +9,8 @@ A distributed computing system for real-time data processing, streaming analytic
 ## 🔗 Key Resources
 
 ### 📄 Documentation
-- **[Project Report](docs/DEAS-Project-Report.docx)** - Comprehensive project documentation and findings
-- **[Presentation](docs/DEAS-PPT.pptx)** - Project overview and key insights
+- **[Project Report](docs/DL_Quadrilateral_report.pdf)** - Comprehensive project documentation and findings
+- **[Presentation](docs/DL_Quadrilateral_slides.pdf)** - Project overview and key insights
 
 ### 💻 Implementation
 - **[Real-Time Streaming Pipeline](streaming/)** - Kafka-based streaming data processing system
